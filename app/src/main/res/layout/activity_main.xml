@@ -44,10 +44,17 @@
             android:textSize="15sp"/>
     </RelativeLayout>
 
-    <TableLayout
+    <LinearLayout
+        android:layout_marginTop="170dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/recicler"
+            android:orientation="vertical"/>
+    </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
