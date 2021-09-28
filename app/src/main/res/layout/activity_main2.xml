@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#000633"
     android:padding="20dp"
     tools:context=".MainActivity2">
@@ -14,6 +13,7 @@
         android:layout_height="wrap_content"
         android:hint="TITLE"
         android:textSize="30sp"
+        android:gravity=""
         android:textColor="#FF505874"
         android:textColorHint="#FF505874"
         android:id="@+id/txtTitle"/>
@@ -21,12 +21,24 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="80dp"
         android:textColorHint="#FF505874"
         android:textColor="#FF505874"
         android:hint="WRITE NOTE..."
-        android:inputType="textImeMultiLine"
+        android:textSize="15sp"
+        android:inputType="textMultiLine"
         android:gravity="top"
         android:id="@+id/txtNote"/>
 
-</LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="20dp"
+        app:backgroundTint="#fff"
+        app:srcCompat="@android:drawable/ic_menu_save"
+        tools:ignore="MissingConstraints" />
+
+
+</FrameLayout>
