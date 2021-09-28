@@ -30,12 +30,6 @@ class MainActivity : AppCompatActivity() {
         rvEscalar.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         adaptador = EscalonarRecicler(this,escalalista)
         rvEscalar.adapter = adaptador
-
-        val posicion = (rvEscalar.layoutManager as LinearLayoutManager?)!!.findFirstVisibleItemPosition()//posicion seleccionada
-
-        val titulo = rvEscalar.layoutManager!!.getChildAt(posicion)!!.findViewById<EditText>(R.id.titulo)
-        val texto = rvEscalar.layoutManager!!.getChildAt(posicion)!!.findViewById<EditText>(R.id.texto1)
-
         abrirNotas()
         fab.setOnClickListener {startActivity(Intent(this, MainActivity2::class.java)) }
     }
@@ -43,11 +37,11 @@ class MainActivity : AppCompatActivity() {
     private fun abrirNotas() {
         //Ejemplo de abrir de un txt varias notas
         try {
-            val archivo = BufferedReader(InputStreamReader(openFileInput("archivo.txt")))// Lee archivo separado por comas
+            val archivo = BufferedReader(InputStreamReader(openFileInput("archivo_10_.txt")))// Lee archivo separado por comas
             archivo.forEachLine {
                 val listado = it.split(";") // crea arreglo linea a linea separado por comas
                 //val Nota1:Nota = Nota() // Se crea objeto nota
-                val imagen1 = ModeloRecilcer(listado[0],listado[1])// Se agrega nota al adaptador de recicler
+                var imagen1 = ModeloRecilcer(listado[0],listado[1])// Se agrega nota al adaptador de recicler
                 escalalista.add(imagen1) // Se agrega Nota al Recicler
             }
         }catch (io : IOException){
