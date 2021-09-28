@@ -4,7 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.EditText
 import android.widget.ListView
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
@@ -18,6 +20,8 @@ class MainActivity : AppCompatActivity() {
     private var escalalista = ArrayList<ModeloRecilcer>()
     private lateinit var rvEscalar: RecyclerView
     private lateinit var adaptador: EscalonarRecicler
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -27,7 +31,12 @@ class MainActivity : AppCompatActivity() {
         adaptador = EscalonarRecicler(this,escalalista)
         rvEscalar.adapter = adaptador
 
-        //abrirNotas()
+        val posicion = (rvEscalar.layoutManager as LinearLayoutManager?)!!.findFirstVisibleItemPosition()//posicion seleccionada
+
+        val titulo = rvEscalar.layoutManager!!.getChildAt(posicion)!!.findViewById<EditText>(R.id.titulo)
+        val texto = rvEscalar.layoutManager!!.getChildAt(posicion)!!.findViewById<EditText>(R.id.texto1)
+
+        abrirNotas()
         fab.setOnClickListener {startActivity(Intent(this, MainActivity2::class.java)) }
     }
 
@@ -36,9 +45,9 @@ class MainActivity : AppCompatActivity() {
         try {
             val archivo = BufferedReader(InputStreamReader(openFileInput("archivo.txt")))// Lee archivo separado por comas
             archivo.forEachLine {
-                val listado = it.split(",") // crea arreglo linea a linea separado por comas
-                val Nota1:Nota = Nota() // Se crea objeto nota
-                val imagen1 = ModeloRecilcer(Nota1.titulo,Nota1.texto)// Se agrega nota al adaptador de recicler
+                val listado = it.split(";") // crea arreglo linea a linea separado por comas
+                //val Nota1:Nota = Nota() // Se crea objeto nota
+                val imagen1 = ModeloRecilcer(listado[0],listado[1])// Se agrega nota al adaptador de recicler
                 escalalista.add(imagen1) // Se agrega Nota al Recicler
             }
         }catch (io : IOException){
