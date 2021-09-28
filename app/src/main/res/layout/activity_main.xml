@@ -64,6 +64,6 @@
         app:backgroundTint="#0065ff"
         app:srcCompat="@android:drawable/ic_input_add"
         tools:ignore="MissingConstraints"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="20dp" />
 
 </FrameLayout>

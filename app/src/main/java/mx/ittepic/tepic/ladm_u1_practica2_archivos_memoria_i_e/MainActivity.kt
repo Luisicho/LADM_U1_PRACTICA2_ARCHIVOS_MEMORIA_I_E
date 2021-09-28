@@ -1,11 +1,13 @@
 package mx.ittepic.tepic.ladm_u1_practica2_archivos_memoria_i_e
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import kotlinx.android.synthetic.main.activity_main.*
 import mx.tecnm.tepic.ladm_u1_practica1_layoutsymaslayouts.EscalonarRecicler
 import mx.tecnm.tepic.ladm_u1_practica1_layoutsymaslayouts.ModeloRecilcer
 import java.io.BufferedReader
@@ -25,7 +27,8 @@ class MainActivity : AppCompatActivity() {
         adaptador = EscalonarRecicler(this,escalalista)
         rvEscalar.adapter = adaptador
 
-        abrirNotas()
+        //abrirNotas()
+        fab.setOnClickListener {startActivity(Intent(this, MainActivity2::class.java)) }
     }
 
     private fun abrirNotas() {
