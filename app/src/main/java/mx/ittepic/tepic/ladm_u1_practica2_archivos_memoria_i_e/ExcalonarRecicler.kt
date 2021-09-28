@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import mx.ittepic.tepic.ladm_u1_practica2_archivos_memoria_i_e.R
 import java.security.AccessControlContext
